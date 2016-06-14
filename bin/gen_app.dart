@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
 import 'package:benchmark_generator/ng2/dart/ng2_dart_generator.dart';
+import 'package:benchmark_generator/ng2/ts/ng2_ts_generator.dart';
 import 'package:benchmark_generator/generator.dart';
 
 /// Generates an app given an application descriptor YAML file.
@@ -24,6 +25,9 @@ main(List<String> rawArgs) {
   switch(framework) {
     case 'ng2-dart':
       generator = new Ng2DartGenerator();
+      break;
+    case 'ng2-ts':
+      generator = new Ng2TypeScriptGenerator();
       break;
     default:
       throw 'Unsupported framework: ${framework}';
